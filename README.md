@@ -78,3 +78,21 @@ python table.py titanic.csv "What is the age of a person with the ticket '24065'
 ```
 
 </details>
+
+## Горбунов А.В.
+### GPT-2
+
+Test the whole generation capabilities here: https://transformer.huggingface.co/doc/gpt2-large
+
+Pretrained model on English language using a causal language modeling (CLM) objective. It was introduced in this paper and first released at this page.
+
+Disclaimer: The team releasing GPT-2 also wrote a model card for their model. Content from this model card has been written by the Hugging Face team to complete the information they provided and give specific examples of bias.
+Model description
+
+GPT-2 is a transformers model pretrained on a very large corpus of English data in a self-supervised fashion. This means it was pretrained on the raw texts only, with no humans labelling them in any way (which is why it can use lots of publicly available data) with an automatic process to generate inputs and labels from those texts. More precisely, it was trained to guess the next word in sentences.
+
+More precisely, inputs are sequences of continuous text of a certain length and the targets are the same sequence, shifted one token (word or piece of word) to the right. The model uses internally a mask-mechanism to make sure the predictions for the token i only uses the inputs from 1 to i but not the future tokens.
+
+This way, the model learns an inner representation of the English language that can then be used to extract features useful for downstream tasks. The model is best at what it was pretrained for however, which is generating texts from a prompt.
+
+This is the smallest version of GPT-2, with 124M parameters. 
