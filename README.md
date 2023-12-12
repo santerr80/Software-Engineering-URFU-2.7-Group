@@ -103,7 +103,7 @@ This is the smallest version of GPT-2, with 124M parameters.
 Приложение для суммаризации транскрипции из YouTube видео.
 ![Alt text](images/app.png)
 
-Запуск приложения:
+## Запуск приложения:
 ```
 streamlit run app.py
 ```
@@ -115,8 +115,19 @@ streamlit run app.py
 ## Антонова С.
 
 # Практическое задание 3
+API версия приложения для суммаризации транскрипции из YouTube видео.
+
+## Установка и запуск:
+1. Установить PyTorch или TensorFlow.
+2. Установить requirements.txt и запустить.
+```
+pip install -r requirements.txt
+uvicorn app_fastapi:app
+```
 
 ## Молохов Д.А.
+Написал метод `summarize`, использующий модели для перевода и суммаризации.
+
 ## Макарова Ю.
 ## Антонова С.
 
