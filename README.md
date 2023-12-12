@@ -1,6 +1,8 @@
 # Software-Engineering-URFU-2.7-Group
 Project on the discipline of Software engineering group 27
 
+# Практическое задание 1
+
 ## Молохов Д.А.
 Модель:
 [TAPEX: Table Pre-training via Learning a Neural SQL Executor](https://huggingface.co/microsoft/tapex-base-finetuned-wikisql).
@@ -96,3 +98,39 @@ More precisely, inputs are sequences of continuous text of a certain length and 
 This way, the model learns an inner representation of the English language that can then be used to extract features useful for downstream tasks. The model is best at what it was pretrained for however, which is generating texts from a prompt.
 
 This is the smallest version of GPT-2, with 124M parameters. 
+
+# Практическое задание 2
+Приложение для суммаризации транскрипции из YouTube видео.
+![Alt text](images/app.png)
+
+Запуск приложения:
+```
+streamlit run app.py
+```
+
+## Молохов Д.А.
+Создал интерфейс приложения.
+
+## Макарова Ю.
+## Антонова С.
+
+# Практическое задание 3
+
+## Молохов Д.А.
+## Макарова Ю.
+## Антонова С.
+
+# Практическое задание 4
+
+## Молохов Д.А.
+## Макарова Ю.
+## Антонова С.
+## Горбунов А.В.
+
+# Практическое задание 5
+
+## Молохов Д.А.
+## Макарова Ю.
+## Антонова С.
+## Горбунов А.В.
+
