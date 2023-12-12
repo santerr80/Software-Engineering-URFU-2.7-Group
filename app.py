@@ -73,8 +73,12 @@ def summarize(video_id, summarizer, translator, translate=False):
     Returns:
         string: Summarized transcription of the video.
     """
-
-    raise NotImplementedError
+    
+    transcript = get_transcript(video_id)
+    summarized = summarize_text(transcript, summarizer)
+    if translate:
+        summarized = translate_to_russian(summarized, translator)
+    return summarized
 
 # Load models
 summarizer = load_summarizer()
