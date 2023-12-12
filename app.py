@@ -30,7 +30,9 @@ def get_transcript(video_id):
         string: Transcription of the video.
     """
 
-    raise NotImplementedError
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    transcript_text = ' '.join([dictionary['text'] for dictionary in transcript])
+    return transcript_text
 
 def summarize_text(text, model):
     """
@@ -44,7 +46,8 @@ def summarize_text(text, model):
         string: Summarization of the text.
     """
 
-    raise NotImplementedError
+    summarized = model(text, max_length=130, min_length=30, do_sample=False)
+    return summarized[0]['summary_text']
 
 def translate_to_russian(text, model):
     """
