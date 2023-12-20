@@ -49,6 +49,12 @@ def summarize_text(text, model):
     summarized = model(text, max_length=130, min_length=30, do_sample=False)
     return summarized[0]['summary_text']
 
+@st.cache
+def load_summarizer(text, model):
+    summarizer = pipeline("summarization", model="Falconsai/text_summarization")
+    return summarizer(text)
+
+
 def translate_to_russian(text, model):
     """
     Translates text to russian with a model.
