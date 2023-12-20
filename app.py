@@ -34,25 +34,15 @@ def get_transcript(video_id):
     transcript_text = ' '.join([dictionary['text'] for dictionary in transcript])
     return transcript_text
 
-def summarize_text(text, model):
-    """
-    Summarizes the text with a model.
-
-    Args:
-        text (string): Input text.
-        model (transformers.pipelines): Model pipeline.
-
-    Returns:
-        string: Summarization of the text.
-    """
-
-    summarized = model(text, max_length=130, min_length=30, do_sample=False)
-    return summarized[0]['summary_text']
 
 @st.cache
 def load_summarizer(text, model):
     summarizer = pipeline("summarization", model="Falconsai/text_summarization")
     return summarizer(text)
+   
+
+    summarized = model(text, max_length=130, min_length=30, do_sample=False)
+    return summarized[0]['summary_text']
 
 
 def translate_to_russian(text, model):
