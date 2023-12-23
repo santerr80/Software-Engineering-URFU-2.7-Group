@@ -17,9 +17,7 @@ def upload_file():
     response = client.post("/uploadfile/",
                             headers=headers,
                             files={"file": ('countries.csv', open("countries.csv", 'rb'), 'text/csv')})
-    for i in range(3):
-        print(response.status_code)
-    return response
+    return response.status_code
 
 @pytest.fixture
 def my_request():
