@@ -14,9 +14,10 @@ def test_root():
 @pytest.fixture
 def upload_file():
     headers = {'accept': 'application/json'}
+    file_path = "gorbunovav/FastAPI_app/countries.csv"
     response = client.post("/uploadfile/",
                             headers=headers,
-                            files={"file": ('countries.csv', open("countries.csv", 'rb'), 'text/csv')})
+                            files={"file": ('countries.csv', open(file_path, 'rb'), 'text/csv')})
     return response.status_code
 
 @pytest.fixture
