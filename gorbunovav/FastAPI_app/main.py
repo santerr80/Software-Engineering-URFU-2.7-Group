@@ -52,7 +52,7 @@ async def create_request(my_request: str):
     return {"Request": my_request}
 
 
- """
+"""
     Эта функция является асинхронным обработчиком маршрута для конечной точки API "/tokenize/". Она отвечает за токенизацию данных в `df` DataFrame с помощью класса TapexTokenizer.
     Параметры:
         None
@@ -68,7 +68,7 @@ async def tokenize():
     return {"response": response}
     
 
- """
+"""
     Асинхронная функция, обслуживающая основное приложение.
     :return: None
     """

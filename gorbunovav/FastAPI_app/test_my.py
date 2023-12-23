@@ -9,24 +9,24 @@ client = TestClient(app)
 def test_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "TapexTokenizer"}
+    assert response.text == "<h1>TapexTokenizer</h1>"
     
 @pytest.fixture
 def upload_file():
-    data_frame = pd.read_csv(r"C:\Python\Environments\Program_of_engeneer\Test_app\countries.csv", encoding='utf-8', sep=';')
-    df = data_frame.astype(str)
-    return df
+    headers = {'accept': 'application/json'}
+    response = client.post("/uploadfile/",
+                            headers=headers,
+                            files={"file": ('countries.csv', open("countries.csv", 'rb'), 'text/csv')})
+    for i in range(3):
+        print(response.status_code)
+    return response
 
 @pytest.fixture
 def my_request():
-    return "Get me most small country"
+    response = client.post("/request/", params={'my_request': "canada population"})
+    return response.status_code
 
 def test_tokenize(upload_file, my_request):
-    print(upload_file)
-    print(my_request)
-    responce = client.get("/tokenize/")
-    assert responce.status_code == 200
-    assert responce.json() == {"response": "belarus"}
-    
-    
-print(upload_file())
+    response = client.get("/tokenize/")
+    assert response.status_code == 200
+    assert response.json()['response'][0].strip() == "38.05"
