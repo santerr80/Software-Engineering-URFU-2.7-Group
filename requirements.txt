@@ -109,3 +109,4 @@ wcwidth==0.2.12
 zipp==3.17.0
 httpx==0.26.0
 python-multipart==0.0.6
+torch
