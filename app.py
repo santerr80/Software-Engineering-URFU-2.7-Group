@@ -1,7 +1,7 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
+from summarizer_utils import load_summarizer
 import streamlit as st
-
 
 @st.cache_resource
 def load_summarizer():
