@@ -1,6 +1,7 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
 from summarizer_utils import load_summarizer
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import streamlit as st
 
 @st.cache_resource
@@ -16,8 +17,11 @@ def load_translator():
     """
     Loads the translation model pipeline.
     """
+        tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-ru-en")
+    model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-ru-en")
+    
+    return tokenizer, model
 
-    raise NotImplementedError
 
 def get_transcript(video_id):
     """
@@ -35,15 +39,20 @@ def get_transcript(video_id):
     return transcript_text
 
 
-@st.cache
-def load_summarizer(text, model):
-    summarizer = pipeline("summarization", model="Falconsai/text_summarization")
-    return summarizer(text)
-   
+def summarize_text(text, model):
+    """
+    Summarizes the text with a model.
+
+    Args:
+        text (string): Input text.
+        model (transformers.pipelines): Model pipeline.
+
+    Returns:
+        string: Summarization of the text.
+    """
 
     summarized = model(text, max_length=130, min_length=30, do_sample=False)
     return summarized[0]['summary_text']
-
 
 def translate_to_russian(text, model):
     """
