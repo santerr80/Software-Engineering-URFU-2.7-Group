@@ -1,26 +1,17 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
 from summarizer_utils import load_summarizer
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import streamlit as st
 
-@st.cache_resource
-def load_summarizer():
-    """
-    Loads the summarization model pipeline.
-    """
-
-    raise NotImplementedError
 
 @st.cache_resource
 def load_translator():
     """
     Loads the translation model pipeline.
     """
-        tokenizer = AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-ru-en")
-    model = AutoModelForSeq2SeqLM.from_pretrained("Helsinki-NLP/opus-mt-ru-en")
+    translator = pipeline('translation_ru_to_en', model='Helsinki-NLP/opus-mt-en-ru')
     
-    return tokenizer, model
+    return translator
 
 
 def get_transcript(video_id):
@@ -66,7 +57,8 @@ def translate_to_russian(text, model):
         string: Russian translation of the text.
     """
 
-    raise NotImplementedError
+    translated = model(text)
+    return translated[0]['translation_text']
 
 def summarize(video_id, summarizer, translator, translate=False):
     """
@@ -104,5 +96,6 @@ if result:
     try:
         summarized = summarize(video_id, summarizer, translator, translate=translate)
         st.write(summarized)
-    except:
+    except Exception as e:
+        st.write(e)
         st.write('Попробуйте другое видео')
