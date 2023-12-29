@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from youtube_transcript_api import YouTubeTranscriptApi
 from transformers import pipeline
+import streamlit as st
 
 ml_models = {}
 
@@ -11,10 +12,13 @@ async def lifespan(app: FastAPI):
     https://fastapi.tiangolo.com/advanced/events/#alternative-events-deprecated
     """
     # Load the summarization model
-    
+summarized = model(text, max_length=130, min_length=30, do_sample=False)
+    return summarized[0]['summary_text']    
 
     # Load the translation model
-
+ translator = pipeline('translation_ru_to_en', model='Helsinki-NLP/opus-mt-en-ru')
+  
+    return translato
 
     yield
 
