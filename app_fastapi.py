@@ -12,14 +12,10 @@ async def lifespan(app: FastAPI):
     https://fastapi.tiangolo.com/advanced/events/#alternative-events-deprecated
     """
     # Load the summarization model
-summarized = model(text, max_length=130, min_length=30, do_sample=False)
-    return summarized[0]['summary_text']    
+    ml_models['summarizer'] = pipeline('summarization', model='Falconsai/text_summarization')
 
     # Load the translation model
- translator = pipeline('translation_ru_to_en', model='Helsinki-NLP/opus-mt-en-ru')
-  
-    return translato
-
+    ml_models['translator'] = pipeline('translation_ru_to_en', model='Helsinki-NLP/opus-mt-en-ru')
     yield
 
     # Clean up the ML models and release the resources
