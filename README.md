@@ -160,7 +160,8 @@ uvicorn app_fastapi:app
 - Модель `summarized` для сжатия текста.
 
 # Практическое задание 4
-
+Приложение для суммаризации транскрипции из YouTube видео было развернуты с помощью `Streamlit`.
+https://gdde32a9tcbggertdapp6kr.streamlit.app/
 
 # Практическое задание 5
 Для приложения по ответу на вопросы по таблицам `gorbunovav/FastAPI_app` были написаны тесты с использованием `pytest` и `GitHub Actions`.
