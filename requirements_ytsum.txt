@@ -1,7 +1,0 @@
-streamlit
-uvicorn
-youtube_transcript_api
-transformers
-fastapi
-sentencepiece
-sacremoses
