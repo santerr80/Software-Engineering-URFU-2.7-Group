@@ -34,3 +34,4 @@ def test_tokenize(upload_file, my_request):
 
 def test_df_upload(upload_file):
     "Проверка правильной загрузки таблицы."
+    assert app.state.df.shape[0] == 7
