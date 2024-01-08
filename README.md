@@ -174,3 +174,22 @@ https://gdde32a9tcbggertdapp6kr.streamlit.app/
 
 ## Горбунов А.В.
 Разработал тесты для проверки модели и API сервиса.
+
+# Итоговый проект
+API-приложение для ответу на вопросы по таблице. `gorbunovav/FastAPI_app`
+
+## Методы
+### `uploadfile`
+Метод для загрузки таблицы на сервер.
+### `request`
+Метод для ввода запроса.
+### `tokenize`
+Метод для вывода ответа.
+
+## Установка и запуск
+```
+git clone https://github.com/santerr80/Software-Engineering-URFU-2.7-Group
+pip install -r requirements.txt
+cd gorbunovav/FastAPI_app
+uvicorn main:app
+```
