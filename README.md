@@ -178,6 +178,8 @@ https://gdde32a9tcbggertdapp6kr.streamlit.app/
 # Итоговый проект
 API-приложение для ответу на вопросы по таблице. `gorbunovav/FastAPI_app`
 
+Для приложения реализованы тесты с помощью `GitHub Actions`.
+
 ## Методы
 ### `uploadfile`
 Метод для загрузки таблицы на сервер.
